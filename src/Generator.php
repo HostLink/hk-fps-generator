@@ -14,6 +14,11 @@ class Generator
         $msg = $encoder->encode($emv);
 
         $crc = CRC::Calculate($msg);
+
+        //to hex
+        $crc = dechex($crc);
+        $crc = str_pad($crc, 4, '0', STR_PAD_LEFT);
+        $crc = strtoupper($crc);
         return $msg . $crc;
     }
 }

@@ -44,6 +44,7 @@ class Encoder
         $merchantAccountInformation = $this->dataObj("26", $guid . $merchantAccountInformationTemplate);
         $merchantCategoryCode = $this->dataObj("52", $obj->mcc);
         $transactionCurrency = $this->dataObj("53", $obj->currency);
+
         $countryCode = $this->dataObj("58", "HK");
         $merchantName = $this->dataObj("59", "NA");
         $merchantCity = $this->dataObj("60", "HK");
@@ -58,10 +59,11 @@ class Encoder
 
         $msg .= $merchantCategoryCode;
         $msg .= $transactionCurrency;
+        $msg .= $transactionAmount;
         $msg .= $countryCode;
         $msg .= $merchantName;
         $msg .= $merchantCity;
-        $msg .= $transactionAmount;
+
         $msg .= $additionalDataTemplate;
         $msg .= "6304";
 
